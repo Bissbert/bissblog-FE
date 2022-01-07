@@ -8,6 +8,10 @@ import {
 } from "react-router-dom";
 import Navigation from "./pages/Navigation";
 import React from "react";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
+import Blog from "./pages/Blog";
 
 // a class that return a React element
 // a Router to render the following paths:

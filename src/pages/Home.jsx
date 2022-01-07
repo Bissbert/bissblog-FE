@@ -77,14 +77,14 @@ class Home extends React.Component {
   //the user will be redirected to the create blogpost page
   handleCreateBlogpostClick = event => {
     event.preventDefault();
-    this.props.history.push("/create");
+    window.history.push("/create");
   };
 
   //handleBlogpostClick is called when the user clicks on a blogpost
   //the user will be redirected to the blogpost page and the current page gets added to the history
   handleBlogpostClick = (event, blogpost) => {
     event.preventDefault();
-    this.props.history.push(`/blogposts/${blogpost._id}`);
+    window.history.push(`/blogposts/${blogpost._id}`);
   };
 
   //handleLogoutClick is called when the user clicks the logout button
@@ -119,7 +119,7 @@ class Home extends React.Component {
     return filteredBlogposts.map(blogpost => {
       return (
         <BlogPreview
-          key={blogpost._id}
+          key={blogpost.id}
           blogpost={blogpost}
           onClick={event => this.handleBlogpostClick(event, blogpost)}
         />
