@@ -1,25 +1,50 @@
 import logo from './logo.svg';
 import './App.css';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+import Navigation from "./pages/Navigation";
+import React from "react";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+// a class that return a React element
+// a Router to render the following paths:
+// - / (Home)
+// - /about (About)
+// - /contact (Contact)
+// - /blog/:id (Blog)
+// - /blog/:id/edit (BlogEdit)
+// - /blog/new (BlogNew)
+// - /404 (NotFound)
+// - /500 (ServerError)
+// - /login (Login)
+// - /logout (Logout)
+// - /register (Register)
+
+class App extends React.Component {
+  render() {
+    return (
+        <Router >
+          <Navigation />
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route path="/about" component={About} />
+            <Route path="/contact" component={Contact} />
+            <Route path="/blog/:id" component={Blog} />
+            <Route path="/blog/:id/edit" component={BlogEdit} />
+            <Route path="/blog/new" component={BlogNew} />
+            <Route path="/login" component={Login} />
+            <Route path="/logout" component={Logout} />
+            <Route path="/register" component={Register} />
+            <Route component={NotFound} />
+            <Route component={ServerError} />
+          </Switch>
+        </Router>
+    )
+  }
 }
+
 
 export default App;
